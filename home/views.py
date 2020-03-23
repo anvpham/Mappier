@@ -14,7 +14,7 @@ def home(request):
 
 
 def search(request, category):
-
+    _category = category
     if request.method == 'POST':
         form = PlaceForm(request.POST)
         if form.is_valid():
@@ -42,7 +42,7 @@ def search(request, category):
                     continue
                 place_list.append(place_details)
 
-            context = {'places': place_list, "category": category.upper(), "location": form['text'].value()}
+            context = {'places': place_list, "category": _category.title(), "location": form['text'].value()}
 
             return render(request, 'home/results.html', context)
         else:
