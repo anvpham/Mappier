@@ -1,0 +1,26 @@
+{% load bootstrap4 %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+    <title>Mappier</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3 border-bottom" style="background-color:#d1f6ff">
+        <a class="navbar-brand" href="{% url 'home:home' %}">Mappier</a>
+    </nav>
+
+    <main role="main" class="container">
+        {% block content %}{% endblock content %}
+    </main>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+{% extends "home/base.html" %}
+
+
+{% block content %}
+
+<div class="mb-3">
+    <p class="display-4" style="text-align: center;">Mappier - It makes you happier</p>
+</div>
+
+
+<form>
+    <div class="form-group mb-5">
+        <h5>{{ form.as_p }}</h5>
+    </div>
+
+    <div class="mt-auto border-bottom">
+        <h5 class="mb-4">Choose a category:</h5>
+        {% for category in categories %}
+        {% csrf_token %}
+        <button type="submit" formmethod="post" formaction="{% url 'home:search' category %}"
+            class="btn btn-outline-info text-dark btn-md mx-2 mb-3">{{ category }}</button>
+        {% endfor %}
+    </div>
+</form>
+
+{% endblock content %}

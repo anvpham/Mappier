@@ -1,0 +1,36 @@
+{% extends "home/base.html" %}
+
+
+{% block content %}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<div class="container">
+  <div class="row">
+    {% for place in places %}
+    <div class="col-sm-4 mb-4">
+      <div class="card border border-primary" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{ place.name }}</h5>
+          <p class="card-text">Rating: <strong>{{ place.rating }}</strong></p>
+          <p><strong>Addess:</strong> {{ place.address }}</p>
+          <a href="https://www.google.com/maps/search/{{ place.name }}" target="_blank" class="btn btn-info">Go to
+            Maps</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  function CallSwal() {
+    var description = `We have got {{ category }} locations in {{ location }} for you!`;
+    swal({
+      title: description,
+      icon: "success"
+    });
+  };
+
+  CallSwal();
+</script>
+{% endblock content %}
