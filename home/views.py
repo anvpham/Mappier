@@ -24,7 +24,7 @@ def search(request, category):
             else:
                 category = category.lower()
 
-            api_key = googlemaps.Client(key='AIzaSyBIcFOK0pRJXMQaXpE1NsFBrxnpK1Q5hMk')
+            api_key = googlemaps.Client(key='Your Google Places API key here')
             results = api_key.places(query=form['text'].value(), type=category, open_now=False)
             places = results['results']
             if places == []:
